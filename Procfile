@@ -1,1 +1,2 @@
-web: gunicorn MGComics MGComics.wsgi:application
+release: python manage.py migrate
+web: gunicorn MGComics.wsgi
