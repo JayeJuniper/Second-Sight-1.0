@@ -1,1 +1,1 @@
-web: gunicorn MGComics.wsgi:application
+web: gunicorn MGComics MGComics.wsgi:application
