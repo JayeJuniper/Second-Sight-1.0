@@ -1,0 +1,16 @@
+{% extends "secondsight/layout.html" %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="header"></div>
+        <div class="main-content">
+            <h1>{{ title }}</h1>
+            <form method = "post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">SUBMIT</button>
+            </form>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Second Sight</title>
+    <meta name="description" content="A Web comic created by Michelle Grenz.">
+    <meta name="author" content="Jonathan Grenz">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'secondsight/css/global.css' %}">
+</head>
+<body>
+    <div class="main-nav">
+        <ul class="nav">
+            <a href="{% url 'index' %}">
+                <img src="/static/secondsight/2022-SS-HeaderLogo4.png"></img>
+            </a>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'news' %}">News</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'archive' %}">Archive</a></li>
+            <!-- <li><a href="" target="_blank">Shop</a></li> -->
+            <!-- <li><a href="{% url 'extras' %}">Extras</a></li> -->
+        </ul>
+    </div>
+    <div class="admin-nav">
+        {% if user.is_authenticated %}
+            <a href="{% url 'news_post' %}" >New Update</a> | 
+            <a href="{% url 'comic_new' %}" >New Comic</a> | 
+            <a href="{% url 'sticky_new' %}" >New Sticky</a>
+            <!-- <a href="{% url 'gallery_new' %}" > | New Art</a> -->
+        {% endif %}
+    </div>
+{% block content %}{% endblock %}
+    <!-- <div class="main-content-sticky">
+        static bottom sticky test
+    </div> -->
+</body>
+<footer>
+    <ul>
+        Social Links:
+        <ul>
+            <li><a href="https://twitter.com/MichelleGrenz" target=”_blank” class="social twitter" >Twitter</a></li>
+            <li><a href="https://www.facebook.com/secondsightcomic" target=”_blank” class="social facebook">Facebook</a></li>
+            <li><a href="https://emgee-art.tumblr.com" target=”_blank” class="social tumblr">Tumblr</a></li>
+        </ul>
+        Comic Mirrors:
+        <ul>
+            <li><a href="https://tapas.io/series/Second-Sight" target=”_blank” ><img src="../static/secondsight/tapas.png"></img></a></li>
+            <li><a href="https://www.webtoons.com/en/challenge/second-sight/list?title_no=109825" target=”_blank”><img src="../static/secondsight/webtoons.png"></a></li>
+        </ul>
+    </ul>
+</footer>
+</html>

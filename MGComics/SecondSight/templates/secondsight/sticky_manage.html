@@ -1,0 +1,25 @@
+{% extends 'secondsight/layout.html' %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="header"></div>
+        <!--main content-->
+        <div class="main-content">
+            <h1>{{  sticky.title }}</h1>
+            {% if sticky.manage == 'd' %}
+                <p>
+                    {% if user.is_authenticated %}
+                        <h2>Are You Sure You Want to Delete This Sticky?</h2>
+                        <a href="{% url 'sticky_delete' pk=sticky.id %}">Delete</a> / 
+                        <a href="{% url 'index' %}">Cancel</a>
+                    {% endif %}
+                </p>
+            {% else %}
+                <h2>Your Sticky Post Has Been Updated</h2>
+                <p><a href="{% url 'news' %}">continue</a></p>
+            {% endif %}
+        </div>
+        <!--/main content-->
+    {% endif %}
+{% endblock %}

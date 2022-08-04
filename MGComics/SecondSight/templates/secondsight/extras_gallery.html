@@ -1,0 +1,22 @@
+{% extends 'secondsight/layout.html' %}
+
+{% block content %}
+<div class="header"></div>
+<!--main content-->
+<div class="main-content">
+    <h2>Artwork</h2>
+    <ul>
+    {% for i in images %}
+        <li>
+            <a href="/media/{{ i.image }}">
+                <img src="/media/{{ i.image }}"></img>
+            </a>
+            {% if user.is_authenticated %}
+                <p><a href="{% url 'gallery_edit' pk=i.id %}">Edit</a></p>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+<!--/main content-->
+</div>
+{% endblock %}

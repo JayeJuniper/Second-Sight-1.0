@@ -1,0 +1,43 @@
+{% extends 'secondsight/layout.html' %}
+
+{% block content %}
+<div class="header"></div>
+<!--main content-->
+<div class="main-content">
+    <h1><a href="{% url 'gallery' %}">Artwork</a></h1>
+    <ul>
+    {% for i in images %}
+        <li>
+            <a href="/media/{{ i.image }}">
+                <img src="/media/{{ i.image }}"></img>
+            </a>
+        </li>
+    {% endfor %}
+    <li id="container">
+        <a href="{% url 'gallery' %}">
+            <img src="/static/secondsight/Button-TextureBBB.jpg"></img>
+            <h1 id="centered">+++</h1>
+        </a>
+    </li>
+</div>
+<div class="main-content">
+    <h1>Fanwork</h1>
+    <p>Want to send me your Second Sight creations? You can email them to me at  mg@secondsightwebcomic.com or tag/dm me on Twitter, Tumblr and Facebook! I’m excited to see what you’ve made!
+    </p>
+    </div>
+<div class="main-content">
+    <h1>Cameos</h1>
+    <p>
+        Mars, Jia & Ren - Project Nought
+In Chapter Two on Page Three, we have Mars, Jia, and the back of Ren's head. Project Nought, by Chelsey Furedi, is a fantastic webcomic that I cannot recommend highly enough. I was introduced to Furedi's work with their first title, Rock N' Riot, which I absolutely adored, and immediately jumped on board when they announced their new Project Nought in 2017.
+
+
+Hotaru - Hotarugari
+Also on Page Three of Chapter Two, there's a modernized and (completely) humanized version of Hotaru, the titular kitsune character from the webcomic Hotarugari by Salis. Hotaru normally has really cute fox ears and tail and a more...Japanese fantasy-esque look to his clothing, but I felt the need to draw him more "normal" for the sake of poor Keira's sanity on her stressful first day at school.
+
+Alice, Corey, Jaden & Victoria - N.M.E.
+Alice, Corey, Jaden, and Victoria appear a few times in Chapter Two on Pages Seven and Eight and Thirteen. These characters are also by Salis, and can be seen illustrated in their quirky, full-colored glory on Sal’ Tumblr page!
+    </p>
+</div>
+<!--/main content-->
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'secondsight/layout.html' %}
+
+{% block content %}
+<div class="header"></div>
+<!--main content-->
+<div class="main-content-comic">
+    <h1>
+        {{ comic.title }}
+        {% if user.is_authenticated %}
+                <a href="{% url 'comic_edit' pk=comic.id %}"> | Edit</a>
+        {% endif %}
+    </h1>
+    <img src="/media/{{ comic.image }}"></img>
+    <h2>
+        <a href="{% url 'comic_detail' pk=first.id %}"> <<< First </a>  | 
+        {% if previous.id %}
+            <a href="{% url 'comic_detail' pk=previous.id %}"> < Previous </a>  |  
+        {% else %}
+            < Previous   |  
+        {% endif %}
+        {% if next.id %}
+            <a href="{% url 'comic_detail' pk=next.id %}"> Next > </a>  | 
+        {% else %}
+            Next >   |  
+        {% endif %}
+        <a href="{% url 'comic_detail' pk=last.id %}"> Last >>> </a>
+    </h2>
+</div>
+{% if comic.description or comic.transcript %}
+<div class="main-content-comic-description">
+    <p>{{ comic.description }}</p>
+    <h2>Transcipt</h2>
+    <p>{{ comic.transcript }}</p>
+</div>
+{% endif %}
+<!--/main content-->
+{% endblock %}

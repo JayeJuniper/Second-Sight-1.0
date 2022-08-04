@@ -1,0 +1,18 @@
+{% extends 'secondsight/layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="header"></div>
+<!--main content-->
+{% for i in users %}
+    <div class="main-content-about">
+        {% if i.image %}
+            <img src="/media/{{ i.image }}"></img>
+        {% endif %}
+        <h2>{{ i.name }}</h2>
+        <p>{{ i.description|safe }}</p>
+    </div>
+{% endfor %}
+<!--/main content-->
+<!--right-sidebar-->
+{% endblock %}

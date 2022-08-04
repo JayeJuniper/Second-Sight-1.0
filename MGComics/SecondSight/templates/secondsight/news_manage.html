@@ -1,0 +1,25 @@
+{% extends 'secondsight/layout.html' %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="header"></div>
+        <!--main content-->
+        <div class="main-content">
+            <h1>{{  post.title }}</h1>
+            {% if post.manage == 'd' %}
+                <p>
+                    {% if user.is_authenticated %}
+                        <h2>Are You Sure You Want to Delete This Post?</h2>
+                        <a href="{% url 'news_delete' pk=post.id %}">Delete</a> / 
+                        <a href="{% url 'news' %}">Cancel</a>
+                    {% endif %}
+                </p>
+            {% else %}
+                <h2>Your Post Has Been Updated</h2>
+                <p><a href="{% url 'news' %}">continue</a></p>
+            {% endif %}
+        </div>
+        <!--/main content-->
+    {% endif %}
+{% endblock %}

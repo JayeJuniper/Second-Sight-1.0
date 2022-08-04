@@ -1,0 +1,27 @@
+{% extends 'secondsight/layout.html' %}
+{% load custom_tags %}
+
+{% block content %}
+<div class="header"></div>
+<!--main content-->
+{% for chapter in chapters %}
+    <div class="main-content-comic">
+        <img src="/media/{{ chapter.image }}"></img>
+        <h1>{{ chapter.title }}</h1>
+        <h2>{{ chapter.description }}</h2>
+        <ul>
+            {% for comic in chapter.comic_set.all|sort_by:'page_number' %}
+                <li>
+                    <a href="{% url 'comic_detail' pk=comic.id %}">
+                        <img src="/media/{{ comic.image }}"></img>
+                    </a>
+                    <a href="{% url 'comic_detail' pk=comic.id %}">
+                        <p>{{ comic.title|cut:"Page " }}</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endfor %}
+<!--/main content-->
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'secondsight/layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="header"></div>
+<!--main content-->
+<div class="main-content">
+    {% if post.image %}
+        <img src="/media/{{ post.image }}" id="banner"></img>
+    {% endif %}
+    <h1>
+        {{  post.title }}
+        {% if user.is_authenticated %}
+            <a href="{% url 'news_edit' pk=post.id %}"> | Edit</a>
+        {% endif %}
+    </h1>
+    <p>{{ post.created_date }}</p>
+    <p>{{ post.text|safe }}</p>
+    <ul>
+    {% for comic in comics %}
+        <li>
+            <a href="{% url 'comic_detail' pk=comic.id %}">
+                <img src="../../../media/{{ comic.image }}">
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+    <!--/main content-->
+</div>
+{% endblock %}
