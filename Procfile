@@ -1,1 +1,1 @@
-web: gunicorn MGComics.config.setting.wsgi
+web: gunicorn MGComics MGComics.wsgi
