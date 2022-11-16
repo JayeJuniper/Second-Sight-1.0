@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath MGComics.wsgi
+web: gunicorn MGComics.wsgi
