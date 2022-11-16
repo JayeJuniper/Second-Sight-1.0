@@ -1,1 +1,1 @@
-web: gunicorn MGComics.wsgi
+web: python manage.py migrate && gunicorn locallibrary.wsgi
