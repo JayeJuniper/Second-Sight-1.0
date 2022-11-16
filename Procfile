@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn MGComics.wsgi
+web: gunicorn --pythonpath MGComics MGComics.wsgi
