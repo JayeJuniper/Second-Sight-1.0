@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn SecondSight.wsgi
+web: python manage.py migrate && gunicorn MGComics.wsgi
